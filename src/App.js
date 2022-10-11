@@ -13,12 +13,6 @@ function App() {
         const temp = await fetch(`https://api.jikan.moe/v4/top/anime`)
             .then(res => res.json());
         SetTopAnime(temp.data.slice(0, 5));
-        // log img_url
-        // console.log(temp.data[0].img_url);
-        // log temp
-        console.log(temp);
-        //log temp image
-        console.log(temp.data[0].img_url);
     }
 
     const HandleSearch = (e) => {
@@ -50,10 +44,6 @@ function App() {
                         search={search}
                         SetSearch={SetSearch}
                         animeList={animeList} />
-                </div>
-                <hr />
-                <div className="row">
-                
                 </div>
             </div>
         </>
