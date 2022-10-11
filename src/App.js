@@ -13,6 +13,12 @@ function App() {
         const temp = await fetch(`https://api.jikan.moe/v4/top/anime`)
             .then(res => res.json());
         SetTopAnime(temp.data.slice(0, 5));
+        // log img_url
+        // console.log(temp.data[0].img_url);
+        // log temp
+        console.log(temp);
+        //log temp image
+        console.log(temp.data[0].img_url);
     }
 
     const HandleSearch = (e) => {
@@ -21,10 +27,10 @@ function App() {
     }
 
     const FetchAnime = async (search) => {
-        alert("API is down, so this won't work"); // form more info: https://docs.api.jikan.moe/#tag/anime/operation/getAnimeSearch
-        // const temp = await fetch(`https://api.jikan.moe/v4/search/anime?q=${search}`)
-        //     .then(res => res.json());
-        // SetAnimeList(temp.results);
+        const temp = await fetch(`https://api.jikan.moe/v4/anime?q=${search}`)
+
+            .then(res => res.json());
+        SetAnimeList(temp.data);
     }
 
     useEffect(() => {
@@ -47,7 +53,7 @@ function App() {
                 </div>
                 <hr />
                 <div className="row">
-
+                
                 </div>
             </div>
         </>
